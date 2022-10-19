@@ -13,11 +13,11 @@ function Header() {
           className="cursor-pointer object-contain"
         />
         <ul className="hidden space-x-4 md:flex">
-          <li>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>New & Popular</li>
-          <li>My List</li>
+          <li className="headerLink">Home</li>
+          <li className="headerLink">TV Shows</li>
+          <li className="headerLink">Movies</li>
+          <li className="headerLink">New & Popular</li>
+          <li className="headerLink">My List</li>
         </ul>
       </div>
     </header>
