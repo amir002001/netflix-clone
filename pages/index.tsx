@@ -2,21 +2,20 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import Row from "../components/Row";
 import { Movie } from "../types";
 import requests from "../utils/requests";
 
-
 interface Props {
-  netflixOriginals: Movie[]
-  trendingNow: Movie[]
-  topRated: Movie[]
-  actionMovies: Movie[]
-  comedyMovies: Movie[]
-  horrorMovies: Movie[]
-  romanceMovies: Movie[]
-  documentaries: Movie[]
+  netflixOriginals: Movie[];
+  trendingNow: Movie[];
+  topRated: Movie[];
+  actionMovies: Movie[];
+  comedyMovies: Movie[];
+  horrorMovies: Movie[];
+  romanceMovies: Movie[];
+  documentaries: Movie[];
 }
-
 
 const Home = ({
   netflixOriginals,
@@ -36,9 +35,17 @@ const Home = ({
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Header />
-      <main>
+      <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         <Banner netflixOriginals={netflixOriginals} />
-        <section>{/* rows */}</section>
+        <section>
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Action Thrillers" movies={topRated} />
+          <Row title="Comedies" movies={actionMovies} />
+          {/* MyList */}
+          <Row title="Scary Movies" movies={comedyMovies} />
+          <Row title="Romance Movies" movies={horrorMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+        </section>
       </main>
       <div></div>
     </div>
@@ -57,7 +64,8 @@ export const getServerSideProps = async () => {
     horrorMovies,
     romanceMovies,
     documentaries,
-  ] = await Promise.all([ // get all movie data
+  ] = await Promise.all([
+    // get all movie data
     fetch(requests.fetchNetflixOriginals).then((res) => res.json()),
     fetch(requests.fetchTrending).then((res) => res.json()),
     fetch(requests.fetchTopRated).then((res) => res.json()),

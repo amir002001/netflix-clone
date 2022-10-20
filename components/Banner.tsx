@@ -22,7 +22,7 @@ function Banner({ netflixOriginals }: Props) {
       <div className="absolute top-0 left-0 h-[95vh] w-full -z-10">
         <Image
           priority={true}
-          src={`${BASE_URL}${movie?.backdrop_path}`}
+          src={`${BASE_URL}original/${movie?.backdrop_path}`}
           alt="movie banner"
           layout="fill"
           objectFit="cover"
