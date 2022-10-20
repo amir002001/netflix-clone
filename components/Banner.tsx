@@ -1,9 +1,22 @@
-import React from 'react'
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
+import { Movie } from "../types";
 
-function Banner() {
-  return (
-    <div>Banner</div>
-  )
+interface Props {
+  netflixOriginals: Movie[];
 }
 
-export default Banner
+function Banner({ netflixOriginals }: Props) {
+  const movie =
+    netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)];
+
+  return (
+    <div>
+      <div>
+        <Image src={`${baseUrl}${movie.backdrop_path}`} alt="lorem" layout="fill" />
+      </div>
+    </div>
+  );
+}
+
+export default Banner;
