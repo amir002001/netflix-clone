@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -25,7 +26,7 @@ function Header() {
   return (
     <header className={`${isScrolled && "bg-[#141414]"}`}>
       <div className="flex items-center space-x-2 md:space-x-10">
-        <img
+        <Image
           alt="logo"
           src="/Netflix_2015_logo.svg"
           width={100}

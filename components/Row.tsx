@@ -32,7 +32,7 @@ function Row({ title, movies }: Props) {
     return () => {
       current?.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div className="group h-40 space-y-0.5 md:space-y-2">
