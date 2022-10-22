@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from "recoil";
 import { modalState } from "../atoms/modalAtoms";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import Modal from "../components/Modal";
 import Row from "../components/Row";
 import { Movie } from "../types";
 import requests from "../utils/requests";
