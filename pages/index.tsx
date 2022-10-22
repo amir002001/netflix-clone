@@ -1,4 +1,6 @@
 import Head from "next/head";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { modalState } from "../atoms/modalAtoms";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Row from "../components/Row";
@@ -26,6 +28,8 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+  const modalVisible = useRecoilValue(modalState);
+
   return (
     <div className="relative h-screen bg-gradient-to-b  lg:h-[140vh]">
       <Head>
@@ -46,7 +50,7 @@ const Home = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
-      <div></div>
+      {modalVisible && <Modal />}
     </div>
   );
 };
