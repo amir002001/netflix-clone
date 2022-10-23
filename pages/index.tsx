@@ -2,6 +2,7 @@ import Head from "next/head";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Row from "../components/Row";
+import useAuth from "../hooks/useAuth";
 import { Movie } from "../types";
 import requests from "../utils/requests";
 
@@ -26,6 +27,9 @@ const Home = ({
   romanceMovies,
   documentaries,
 }: Props) => {
+
+  const {loading} = useAuth();
+  if(loading) return <div></div>
   return (
     <div className="relative h-screen bg-gradient-to-b  lg:h-[140vh]">
       <Head>

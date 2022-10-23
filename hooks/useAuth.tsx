@@ -58,7 +58,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       setInitialLoading(false);
     });
-  }, [router]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [auth]);
 
   const signUp = useCallback(
     async (email: string, password: string) => {
