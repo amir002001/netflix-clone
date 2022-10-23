@@ -32,7 +32,7 @@ function Row({ title, movies }: Props) {
     return () => {
       current?.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  });
 
   return (
     <div className="group h-40 space-y-0.5 md:space-y-2">
@@ -46,7 +46,7 @@ function Row({ title, movies }: Props) {
         />
         <div
           ref={rowRef}
-          className="flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 movieRow"
+          className="flex items-center space-x-0.5 overflow-x-scroll md:space-x-2.5 md:p-2 hideScroll"
         >
           {movies.map((movie, index) => (
             <Thumbnail key={index} movie={movie} />
