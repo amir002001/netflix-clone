@@ -29,7 +29,7 @@ function Login() {
   return (
     <div className="relative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
       <Head>
-        <title>Netflix</title>
+        <title>Amirflix</title>
         <link rel="icon" type="image/png" href="/favicon.png" />
       </Head>
       <Image
