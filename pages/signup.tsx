@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
@@ -10,9 +9,8 @@ interface Inputs {
     password: string;
 }
 
-function Login() {
-    // whether the user wants to login or sign up
-    const { signIn } = useAuth();
+function Signup() {
+    const { signUp } = useAuth();
 
     const {
         register,
@@ -20,7 +18,7 @@ function Login() {
         formState: { errors },
     } = useForm<Inputs>();
     const onSubmit: SubmitHandler<Inputs> = async ({ email, password }) => {
-        await signIn(email, password);
+        await signUp(email, password);
     };
 
     return (
@@ -50,9 +48,7 @@ function Login() {
                 className="relative mt-24 rounded space-y-8 bg-black/75 py-10 px-6 md:mt-0 md:max-w-md md:px-14"
                 onSubmit={handleSubmit(onSubmit)}
             >
-                <h1 className="text-4xl font-semibold">Sign In</h1>
-                <p className="text-blue-200/60"><span className="font-semibold">demo@demo.com</span> with password <span className="font-semibold">demo1234</span></p>
-                <p className="text-blue-200/60"><span className="font-semibold">or create your own :)</span></p>
+                <h1 className="text-4xl font-semibold">Sign Up</h1>
                 <div className="space-y-4">
                     <label htmlFor="email" className="inline-block w-full">
                         <input
@@ -90,19 +86,11 @@ function Login() {
                     type="submit"
                     className="w-full rounded bg-[#e50914] py-3 font-semibold"
                 >
-                    Sign In
+                    Sign Up
                 </button>
-                <div className="text-[gray]">
-                    New to Netflix?
-                    <Link type="submit" href={"/signup"}>
-                        <span className="ml-1 text-white hover:underline">
-                            Sign Up Now
-                        </span>
-                    </Link>
-                </div>
             </form>
         </div>
     );
 }
 
-export default Login;
+export default Signup;
